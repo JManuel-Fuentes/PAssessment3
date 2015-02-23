@@ -39,6 +39,6 @@ colnames(subjectsActivities) <- c("subject.id", "activity")
 activityData <- cbind(subjectsActivities, totalFeatures)
 
 # New Result
-results <- aggregate(activityData[,3:81], by = list(activityData$subject.id, activity.frame$activity), FUN = mean)
+results <- aggregate(activityData[,3:81], by = list(activityData$subject.id, activityData$activity), FUN = mean)
 colnames(results)[1:2] <- c("subject.id", "activity")
 write.table(results, file="measures.txt", row.names = FALSE)
